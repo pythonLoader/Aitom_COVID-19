@@ -74,7 +74,7 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     
 def main():
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
-    path = '/ldap_shared/home/v_zhenxi_zhu/data/aitom_demo_single_particle_tomogram.mrc'
+    path = '/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/TS_005.mrc'
     
     # Also, we can crop and only use part of the mrc image instead of binning for tasks requiring higher resolution
     # crop_path = 'cropped.mrc'
