@@ -76,7 +76,7 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     
 def main(i):
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
-    path_idx = TS_+i
+    path_idx = "TS_"+i
     path = "/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/{}.mrc".format(path_idx)
     
     output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
