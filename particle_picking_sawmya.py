@@ -74,7 +74,7 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     print("T=m+t*(M-m)/20 \nT=%f m=%f t=%f M=%f" %(T,m,t,M))
     return res
     
-def main():
+def main(i):
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
     path = '/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/TS_005.mrc'
     
@@ -148,5 +148,18 @@ def main():
     
     
 if __name__ == '__main__':
-    main()
+    path = '/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/'
+    
+    output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
+    output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
+    if not os.path.exists(output_json_dir):
+        os.mkdir(output_json_dir)
+    
+    if not os.path.exists(output_pickle_dir):
+        os.mkdir(output_pickle_dir)
+
+    for file_ in os.listdir(path):
+        idx = file_.split("/")[-1].split(".")[0][2:]
+        print(idx)
+        # main()
 
