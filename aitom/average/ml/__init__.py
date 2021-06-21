@@ -1,0 +1,3 @@
+"""
+Maximum likelihood based averaging
+"""

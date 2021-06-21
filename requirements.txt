@@ -1,0 +1,12 @@
+cython
+numpy
+scipy
+sklearn
+mrcfile
+matplotlib
+pypng
+tensorflow
+keras==2.1.0
+lsm-db
+numba
+six

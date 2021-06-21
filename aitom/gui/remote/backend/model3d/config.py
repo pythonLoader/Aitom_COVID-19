@@ -1,0 +1,1 @@
+﻿SCALE_BASE = 2
