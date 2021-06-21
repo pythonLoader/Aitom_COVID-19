@@ -7,6 +7,7 @@ https://bmcbioinformatics.biomedcentral.com/articles/10.1186/s12859-016-1283-3
 '''
 
 
+from scipy.spatial.distance import jensenshannon
 from aitom.pick.dog.particle_picking_dog__util import peak
 from aitom.pick.dog.particle_picking_dog__util import peak__partition
 from aitom.pick.dog.particle_picking_dog__filter import do_filter
@@ -26,6 +27,10 @@ from pprint import pprint
 import aitom.io.mrcfile_proxy as TIM
 from pprint import pprint
 import os,sys
+
+##GLOBAL IMPORTS##
+output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
+output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
 
 def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessing_process_num=0, pick_num=None):
     '''
@@ -79,13 +84,13 @@ def main(i):
     path_idx = "TS_"+i
     path = "/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/{}.mrc".format(path_idx)
     
-    output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
-    output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
-    if not os.path.exists(output_json_dir):
-        os.mkdir(output_json_dir)
+    # output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
+    # output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
+    # if not os.path.exists(output_json_dir):
+    #     os.mkdir(output_json_dir)
     
-    if not os.path.exists(output_pickle_dir):
-        os.mkdir(output_pickle_dir)
+    # if not os.path.exists(output_pickle_dir):
+    #     os.mkdir(output_pickle_dir)
 
     
     # Also, we can crop and only use part of the mrc image instead of binning for tasks requiring higher resolution
@@ -108,7 +113,7 @@ def main(i):
     # (Optional) Save subvolumes of peaks for autoencoder input
     dump_subvols = True
     if dump_subvols: # use later for autoencoder
-        subvols_loc = "demo_single_particle_subvolumes.pickle"
+        subvols_loc = output_pickle_dir+"/{}_single_particle_subvolumes.pickle".format(i)
         from aitom.classify.deep.unsupervised.autoencoder.autoencoder_util import peaks_to_subvolumes
         a = io_file.read_mrc_data(path)
         d = peaks_to_subvolumes(im_vol_util.cub_img(a)['vt'], result, 32)
@@ -135,7 +140,9 @@ def main(i):
             loc.append(loc_np[j].tolist())    
         json_data.append({'peak':{'loc':loc}})
     
-    with open('data_json_file.json','w') as f:
+    json_out_file = '{}_data_json_file.json'.format(i)
+    
+    with open(json_out_file,'w') as f:
         print("Saving JSON Data")
         json.dump(json_data,f)
 
@@ -151,8 +158,6 @@ def main(i):
 if __name__ == '__main__':
     path = '/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/'
     
-    output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
-    output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
     if not os.path.exists(output_json_dir):
         os.mkdir(output_json_dir)
     
