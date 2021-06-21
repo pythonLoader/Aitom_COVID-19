@@ -76,7 +76,8 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     
 def main(i):
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
-    path = '/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/TS_005.mrc'
+    path_idx = TS_+i
+    path = "/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/{}.mrc".format(path_idx)
     
     output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
     output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
@@ -161,5 +162,6 @@ if __name__ == '__main__':
     for file_ in os.listdir(path):
         idx = file_.split("/")[-1].split(".")[0][3:]
         print(idx)
-        # main()
+        if(int(idx) < 155):
+            main(idx)
 
