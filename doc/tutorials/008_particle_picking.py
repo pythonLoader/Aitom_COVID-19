@@ -24,6 +24,7 @@ from aitom.filter.gaussian import dog_smooth
 from bisect import bisect
 from pprint import pprint
 import aitom.io.mrcfile_proxy as TIM
+from pprint import pprint
 
 def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessing_process_num=0, pick_num=None):
     '''
@@ -121,16 +122,19 @@ def main():
         loc=[]
         for j in range(len(loc_np)):
             loc.append(loc_np[j].tolist())    
-        json_data.append({'peak':{'loc':loc}}) 
+        json_data.append({'peak':{'loc':loc}})
+    
     with open('data_json_file.json','w') as f:
+        print("Saving JSON DAtA")
         json.dump(json_data,f)
 
+    pprint(json_data)
     dj=json_data
     x = N.zeros(    (len(dj), 3)  )
     for i,d in enumerate(dj):        x[i,:] = N.array(d['peak']['loc'])
 
     l = generate_lines(x_full=x, rad=sigma1)
-    display_map_with_lines(l=l, map_file=path)
+    # display_map_with_lines(l=l, map_file=path)
     
     
 if __name__ == '__main__':
