@@ -79,9 +79,9 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     print("T=m+t*(M-m)/20 \nT=%f m=%f t=%f M=%f" %(T,m,t,M))
     return res
     
-def main(i):
+def main(idx):
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
-    path_idx = "TS_"+i
+    path_idx = "TS_"+idx
     path = "/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/{}.mrc".format(path_idx)
     
     # output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
@@ -140,7 +140,7 @@ def main(i):
             loc.append(loc_np[j].tolist())    
         json_data.append({'peak':{'loc':loc}})
     
-    json_out_file = '{}_data_json_file.json'.format(i)
+    json_out_file = output_json_dir+'/{}_data_json_file.json'.format(idx)
     
     with open(json_out_file,'w') as f:
         print("Saving JSON Data")
