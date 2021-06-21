@@ -159,7 +159,7 @@ if __name__ == '__main__':
         os.mkdir(output_pickle_dir)
 
     for file_ in os.listdir(path):
-        idx = file_.split("/")[-1].split(".")[0][2:]
+        idx = file_.split("/")[-1].split(".")[0][3:]
         print(idx)
         # main()
 
