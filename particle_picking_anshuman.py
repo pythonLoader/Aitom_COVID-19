@@ -113,7 +113,7 @@ def main(idx):
     # (Optional) Save subvolumes of peaks for autoencoder input
     dump_subvols = True
     if dump_subvols: # use later for autoencoder
-        subvols_loc = output_pickle_dir+"/{}_single_particle_subvolumes.pickle".format(i)
+        subvols_loc = output_pickle_dir+"/{}_single_particle_subvolumes.pickle".format(idx)
         from aitom.classify.deep.unsupervised.autoencoder.autoencoder_util import peaks_to_subvolumes
         a = io_file.read_mrc_data(path)
         d = peaks_to_subvolumes(im_vol_util.cub_img(a)['vt'], result, 32)
