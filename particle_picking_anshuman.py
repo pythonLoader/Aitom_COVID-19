@@ -164,9 +164,16 @@ if __name__ == '__main__':
     if not os.path.exists(output_pickle_dir):
         os.mkdir(output_pickle_dir)
 
+    
     for file_ in os.listdir(path):
-        idx = file_.split("/")[-1].split(".")[0][3:]
-        print(idx)
+        
+        # print(file_)
+        if not file_.startswith("TS"):
+            print(file_)
+            print("Not intended file type, skipping!!")
+            continue
+        idx = file_.split(".")[0][3:]
+        print(file_)
+        print("Now working on -> ",idx)
         if(int(idx) > 155):
             main(idx)
-
