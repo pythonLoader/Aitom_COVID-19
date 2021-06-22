@@ -141,12 +141,12 @@ def main(idx):
         json_data.append({'peak':{'loc':loc}})
     
     json_out_file = output_json_dir+'/{}_data_json_file.json'.format(idx)
-    
+    print(json_out_file)
     with open(json_out_file,'w') as f:
         print("Saving JSON Data")
         json.dump(json_data,f)
 
-    pprint(json_data)
+    # pprint(json_data)
     dj=json_data
     x = N.zeros(    (len(dj), 3)  )
     for i,d in enumerate(dj):        x[i,:] = N.array(d['peak']['loc'])
@@ -165,8 +165,9 @@ if __name__ == '__main__':
         os.mkdir(output_pickle_dir)
 
     for file_ in os.listdir(path):
+        print(file_)
         idx = file_.split("/")[-1].split(".")[0][3:]
         print(idx)
-        if(int(idx) < 155):
+        if(int(idx) < 155 and int(idx) != 49):
             main(idx)
 
