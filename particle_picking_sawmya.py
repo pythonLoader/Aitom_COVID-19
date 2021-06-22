@@ -170,7 +170,9 @@ if __name__ == '__main__':
         if not file_.startswith("TS"):
             print(file_)
             print("Not intended file type, skipping!!")
+            continue
         idx = file_.split(".")[0][3:]
+        print(file_)
         print("Now working on -> ",idx)
         if(int(idx) < 155 and int(idx) != 49):
             main(idx)
