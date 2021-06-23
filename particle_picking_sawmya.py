@@ -27,7 +27,7 @@ from pprint import pprint
 import aitom.io.mrcfile_proxy as TIM
 from pprint import pprint
 import os,sys
-
+import time
 ##GLOBAL IMPORTS##
 output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Jsons'
 output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Pickles'
@@ -181,6 +181,9 @@ if __name__ == '__main__':
             print("File already done, skipping")
         elif(int(idx) < 155):
             main(idx)
+            time.sleep(10)
         else:
             print("File done by Anshuman, skipping")
+        
+        
 
