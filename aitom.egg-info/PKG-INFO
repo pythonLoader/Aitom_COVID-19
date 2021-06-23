@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: aitom
+Version: 0.0.1
+Summary: AI software for tomogram analysis
+Home-page: https://github.com/xulabs/aitom
+Author: Xu Lab (CMU) and collaborators
+Author-email: mxu1@cs.cmu.edu
+License: GPLv3
+Description: UNKNOWN
+Platform: x86_64

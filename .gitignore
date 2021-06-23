@@ -2,16 +2,16 @@
 *.pyc
 .DS_Store
 .cache
-build
-aitom.egg-info
-dist
-ext
+# build
+# aitom.egg-info
+# dist
+# ext
 .vscode
-aitom/tomominer/core/cython/core.cpp
+# aitom/tomominer/core/cython/core.cpp
 __pycache__
-data
-result
-tmp
+# data
+# result
+# tmp
 .ipynb_checkpoints
 *.so
 
