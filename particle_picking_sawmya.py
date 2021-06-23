@@ -174,6 +174,6 @@ if __name__ == '__main__':
         idx = file_.split(".")[0][3:]
         print(file_)
         print("Now working on -> ",idx)
-        if(int(idx) < 155 and int(idx) != 49):
+        if(int(idx) < 155):
             main(idx)
 
