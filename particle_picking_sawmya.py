@@ -29,8 +29,8 @@ from pprint import pprint
 import os,sys
 
 ##GLOBAL IMPORTS##
-output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
-output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
+output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Jsons'
+output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Pickles'
 
 def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessing_process_num=0, pick_num=None):
     '''
@@ -181,4 +181,6 @@ if __name__ == '__main__':
             print("File already done, skipping")
         elif(int(idx) < 155):
             main(idx)
+        else:
+            print("File done by Anshuman, skipping")
 
