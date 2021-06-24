@@ -181,7 +181,7 @@ if __name__ == '__main__':
             print("File already done, skipping")
         elif(int(idx) < 155):
             main(idx)
-            time.sleep(10)
+            # time.sleep(10)
         else:
             print("File done by Anshuman, skipping")
         
