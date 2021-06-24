@@ -164,7 +164,8 @@ if __name__ == '__main__':
     if not os.path.exists(output_pickle_dir):
         os.mkdir(output_pickle_dir)
 
-    
+    fls = os.listdir(output_json_dir)
+
     for file_ in os.listdir(path):
         
         # print(file_)
@@ -175,5 +176,11 @@ if __name__ == '__main__':
         idx = file_.split(".")[0][3:]
         print(file_)
         print("Now working on -> ",idx)
-        if(int(idx) > 155):
+        output_json_file = "{}_data_json_file.json".format(idx)
+        if output_json_file in fls:
+            print("File already done, skipping")
+        elif(int(idx) < 155):
             main(idx)
+            # time.sleep(10)
+        else:
+            print("File done by Anshuman, skipping")

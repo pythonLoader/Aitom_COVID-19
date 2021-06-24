@@ -5,7 +5,7 @@
 
 //#include "boost/tuple/tuple.hpp"
 
-#include "armadillo"
+#include <armadillo>
 
 
 #include "arma_extend.hpp"
