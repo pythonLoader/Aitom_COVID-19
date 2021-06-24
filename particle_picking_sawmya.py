@@ -179,7 +179,7 @@ if __name__ == '__main__':
         output_json_file = "{}_data_json_file.json".format(idx)
         if output_json_file in fls:
             print("File already done, skipping")
-        elif(int(idx) < 155):
+        elif(int(idx) < 155 and int(idx) != 43):
             main(idx)
             # time.sleep(10)
         else:
