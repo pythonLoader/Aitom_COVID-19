@@ -82,6 +82,8 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     
 def main(idx=10493):
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
+    path = '/shared/u/v_anshuman_sinha/10493/10493/data/Frames/'
+
     path_idx = str(idx)
     path = path+"{}.mrcs".format(path_idx)
     
