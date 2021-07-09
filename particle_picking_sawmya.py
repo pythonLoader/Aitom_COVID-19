@@ -29,8 +29,9 @@ from pprint import pprint
 import os,sys
 import time
 ##GLOBAL IMPORTS##
-output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Jsons'
-output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Pickles'
+output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Jsons_tomogram'
+output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Pickles_tomogram'
+path = '/shared/u/v_anshuman_sinha/10493/10493/data/Frames/'
 
 def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessing_process_num=0, pick_num=None):
     '''
@@ -79,10 +80,10 @@ def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessin
     print("T=m+t*(M-m)/20 \nT=%f m=%f t=%f M=%f" %(T,m,t,M))
     return res
     
-def main(idx):
+def main(idx=10493):
     # Download from: https://cmu.box.com/s/9hn3qqtqmivauus3kgtasg5uzlj53wxp
-    path_idx = "TS_"+idx
-    path = "/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/{}.mrc".format(path_idx)
+    path_idx = str(idx)
+    path = path+"{}.mrcs".format(path_idx)
     
     # output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Jsons'
     # output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19/Pickles'
@@ -156,7 +157,7 @@ def main(idx):
     
     
 if __name__ == '__main__':
-    path = '/shared/u/v_anshuman_sinha/10453/10453/10453/data/tilt_series/'
+    
     
     if not os.path.exists(output_json_dir):
         os.mkdir(output_json_dir)
@@ -164,26 +165,28 @@ if __name__ == '__main__':
     if not os.path.exists(output_pickle_dir):
         os.mkdir(output_pickle_dir)
 
-    fls = os.listdir(output_json_dir)
+    
+    main()
+    # fls = os.listdir(output_json_dir)
 
-    for file_ in os.listdir(path):
+    # for file_ in os.listdir(path):
         
-        # print(file_)
-        if not file_.startswith("TS"):
-            print(file_)
-            print("Not intended file type, skipping!!")
-            continue
-        idx = file_.split(".")[0][3:]
-        print(file_)
-        print("Now working on -> ",idx)
-        output_json_file = "{}_data_json_file.json".format(idx)
-        if output_json_file in fls:
-            print("File already done, skipping")
-        elif(int(idx) < 155 and int(idx) != 43):
-            main(idx)
-            # time.sleep(10)
-        else:
-            print("File done by Anshuman, skipping")
+    #     # print(file_)
+    #     if not file_.startswith("TS"):
+    #         print(file_)
+    #         print("Not intended file type, skipping!!")
+    #         continue
+    #     idx = file_.split(".")[0][3:]
+    #     print(file_)
+    #     print("Now working on -> ",idx)
+    #     output_json_file = "{}_data_json_file.json".format(idx)
+    #     if output_json_file in fls:
+    #         print("File already done, skipping")
+    #     elif(int(idx) < 155 and int(idx) != 43):
+    #         main(idx)
+    #         # time.sleep(10)
+    #     else:
+    #         print("File done by Anshuman, skipping")
         
         
 
