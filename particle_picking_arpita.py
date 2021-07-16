@@ -29,8 +29,8 @@ from pprint import pprint
 import os,sys
 import time
 ##GLOBAL IMPORTS##
-output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/10493/Jsons_rt'
-output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/10493/Pickles_rt'
+output_json_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Jsons_rt'
+output_pickle_dir = '/shared/u/v_anshuman_sinha/Aitom_COVID-19_first/Pickles_rt'
 path = '/shared/u/v_anshuman_sinha/10493/10493/data/tomogram_reconstruction/reconstructed_tomograms'
 
 def picking(path, s1, s2, t, find_maxima=True, partition_op=None, multiprocessing_process_num=0, pick_num=None):
